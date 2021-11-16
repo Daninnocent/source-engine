@@ -1,0 +1,27 @@
+name: android build
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: the ndk thingy
+      uses: nttld/setup-ndk@v1
+      with:
+        ndk-version: r10e
+     
+    - name: run the things and all idk
+      run: |
+        export ANDROID_NDK=/path/to/ndk
+        ./waf configure -T debug --android=armeabi-v7a,4.9,21
+        ./waf build
+
+
