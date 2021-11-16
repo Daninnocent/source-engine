@@ -20,8 +20,5 @@ jobs:
      
     - name: run the things and all idk
       run: |
-        export ANDROID_NDK=/path/to/ndk
-        ./waf configure -T debug --android=armeabi-v7a,4.9,21
-        ./waf build
-
-
+         ./waf configure -T debug
+         ./waf build
